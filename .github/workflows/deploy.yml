@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-
+env:
+  GIT_USER: ly2351
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
 permissions:
   contents: write
 
