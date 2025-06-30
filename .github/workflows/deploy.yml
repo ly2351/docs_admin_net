@@ -33,6 +33,11 @@ jobs:
       - name: Build website
         run: pnpm run build
 
+      - name: Configure Git user
+        run: |
+          git config --global user.email "kudsu@qq.com"
+          git config --global user.name "ly2351"  
+
       - name: Deploy to GitHub Pages
         run: pnpm run deploy
         env:
