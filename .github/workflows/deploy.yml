@@ -3,10 +3,10 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main  # 每次推送到 main 分支就会触发部署
+      - main
 
 permissions:
-  contents: write  # 必须，GitHub Pages 部署需要
+  contents: write
 
 jobs:
   deploy:
@@ -20,10 +20,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
+          # cache: 'pnpm'  # 先注释试试
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Install dependencies
         run: pnpm install
