@@ -38,7 +38,8 @@ jobs:
           git config --global user.name "ly2351"
 
       - name: Deploy to GitHub Pages
-        run: |
-          export GIT_USER=ly2351
-          export DEPLOYMENT_REMOTE=https://ly2351:${{ secrets.GITHUB_TOKEN }}@github.com/ly2351/docs_admin_net.git
-          pnpm run deploy
+        env:
+          GIT_USER: ly2351
+          DEPLOYMENT_REMOTE: https://ly2351:${{ secrets.GITHUB_TOKEN }}@github.com/ly2351/docs_admin_net.git
+        run: pnpm run deploy
+
