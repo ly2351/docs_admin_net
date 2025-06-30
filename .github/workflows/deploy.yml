@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write  # 必须有这个，才能写 gh-pages 分支
+  contents: write
 
 jobs:
   deploy:
@@ -37,8 +37,8 @@ jobs:
           git config --global user.email "kudsu@qq.com"
           git config --global user.name "ly2351"
 
-      - name: Set remote URL with GitHub token
-        run: git remote set-url origin https://ly2351:${{ secrets.GITHUB_TOKEN }}@github.com/ly2351/docs_admin_net.git
-
       - name: Deploy to GitHub Pages
-        run: GIT_USER=ly2351 pnpm run deploy
+        run: |
+          export GIT_USER=ly2351
+          export DEPLOYMENT_REMOTE=https://ly2351:${{ secrets.GITHUB_TOKEN }}@github.com/ly2351/docs_admin_net.git
+          pnpm run deploy
