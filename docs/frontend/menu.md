@@ -13,7 +13,8 @@ sidebar_position: 2
 - 后端控制：需先去 [/src/stores/themeConfig.ts](https://gitee.com/zuohuaijun/Admin.NET/blob/next/Web/src/stores/themeConfig.ts#L133) 下开启 `isRequestRoutes: true`，然后去 [/@/api/menu/index.ts](https://gitee.com/zuohuaijun/Admin.NET/blob/next/Web/src/api/menu/index.ts) 中修改接口拿菜单数据
 :::
 
-以下内容为国际化，想了解更多，请移步 [高级-国际化](./i18n.md)
+以下内容为国际化，想了解更多，请移步 
+<!-- [高级-国际化](./i18n.md) -->
 
 ## 参数说明
 代码位置：[/@/router/route.ts](https://gitee.com/zuohuaijun/Admin.NET/blob/next/Web/src/router/route.ts)
@@ -88,7 +89,8 @@ sidebar_position: 2
 
 ### 1. 面包屑多级显示
 
-在项目 [/@/router/route.ts](https://gitee.com/zuohuaijun/Admin.NET/blob/next/Web/src/router/route.ts) 文件中，观察 `path` 字段，有 `children` 时，`path` 字段是基于上一级继续拼接（为什么这样？详看 [布局配置-breadcrumb-面包屑](./layout.md)）。
+在项目 [/@/router/route.ts](https://gitee.com/zuohuaijun/Admin.NET/blob/next/Web/src/router/route.ts) 文件中，观察 `path` 字段，有 `children` 时，`path` 字段是基于上一级继续拼接（为什么这样？详看 
+<!-- [布局配置-breadcrumb-面包屑](./layout.md)）。 -->
 
 如下所示：`/params/xxx`，这样做是为了 `breadcrumb-面包屑` 的显示问题。
 

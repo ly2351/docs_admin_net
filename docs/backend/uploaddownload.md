@@ -92,4 +92,4 @@ const exportTemp = async () => {
 };
 ```
 
-**文件预览请参考**  [文件预览](doc2.mdx)
+**文件预览请参考**  [文件预览](https://gitee.com/zuohuaijun/Admin.NET/blob/next/Web/src/views/system/file/index.vue#L247)
