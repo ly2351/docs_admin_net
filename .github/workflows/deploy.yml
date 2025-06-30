@@ -1,0 +1,38 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 每次推送到 main 分支就会触发部署
+
+permissions:
+  contents: write  # 必须，GitHub Pages 部署需要
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build website
+        run: pnpm run build
+
+      - name: Deploy to GitHub Pages
+        run: pnpm run deploy
+        env:
+          GIT_USER: ly2351
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
