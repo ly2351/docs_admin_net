@@ -7,7 +7,7 @@ on:
 env:
   GIT_USER: ly2351
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
 permissions:
   contents: write
 
@@ -40,6 +40,9 @@ jobs:
         run: |
           git config --global user.email "kudsu@qq.com"
           git config --global user.name "ly2351"  
+
+      - name: Add .nojekyll to prevent GitHub Pages jekyll processing
+        run: echo > build/.nojekyll
 
       - name: Deploy to GitHub Pages
         run: pnpm run deploy
