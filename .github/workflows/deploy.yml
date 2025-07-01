@@ -2,50 +2,42 @@ name: Deploy Docusaurus to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-env:
-  GIT_USER: ly2351
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-permissions:
-  contents: write
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
-          # cache: 'pnpm'  # 先注释试试
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      
+      - uses: pnpm/action-setup@v2
         with:
           version: 8
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build website
-        run: pnpm run build
-
-      - name: Configure Git user
+      
+      - run: pnpm install
+      
+      - run: pnpm run build
+      
+      - name: Configure Git
         run: |
+          git config --global user.name "ly2351"
           git config --global user.email "kudsu@qq.com"
-          git config --global user.name "ly2351"  
-
-      - name: Add .nojekyll to prevent GitHub Pages jekyll processing
-        run: echo > build/.nojekyll
-
-      - name: Deploy to GitHub Pages
-        run: pnpm run deploy
-        env:
-          GIT_USER: ly2351
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - run: echo > build/.nojekyll
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          force_orphan: true  # 强制清空历史提交
