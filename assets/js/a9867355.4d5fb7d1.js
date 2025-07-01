@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_admin_net=self.webpackChunkdocs_admin_net||[]).push([[3079],{6424:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/docs_admin_net/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
