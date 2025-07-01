@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: '.NET快速开发文档',
+  tagline: '记录了开发框架、前端、后端等等的使用教程',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -86,9 +86,9 @@ const config: Config = {
           position: 'left',
           label: '文档',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: '博客', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/ly2351/docs_admin_net',
           label: 'GitHub',
           position: 'right',
         },
@@ -101,11 +101,11 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Admin.NET',
-              to: '/docs/intro',
+              label: '前端手册',
+              to: '/docs/backend/introduce/',
             },{
-              label: 'Admin.NET',
-              to: '/docs/intro',
+              label: '后端手册',
+              to: '/docs/frontend/introduce/',
             },
           ],
         },
@@ -135,7 +135,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/ly2351/docs_admin_net',
             },
           ],
         },
