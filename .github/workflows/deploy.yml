@@ -2,7 +2,15 @@ name: Deploy Docusaurus to GitHub Pages
 
 on:
   push:
+<<<<<<< HEAD
     branches: [ main ]
+=======
+    branches:
+      - main
+
+permissions:
+  contents: write
+>>>>>>> aec49e7454f83e52e10bbc8e827cb00759d5531a
 
 jobs:
   deploy:
@@ -19,8 +27,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+<<<<<<< HEAD
       
       - uses: pnpm/action-setup@v2
+=======
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+>>>>>>> aec49e7454f83e52e10bbc8e827cb00759d5531a
         with:
           version: 8
       
@@ -32,6 +46,7 @@ jobs:
         run: |
           git config --global user.name "ly2351"
           git config --global user.email "kudsu@qq.com"
+<<<<<<< HEAD
       
       - run: echo > build/.nojekyll
       
@@ -41,3 +56,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           force_orphan: true  # 强制清空历史提交
+=======
+          git config --global user.name "ly2351"
+
+      - name: Deploy to GitHub Pages
+        env:
+          GIT_USER: ly2351
+          DEPLOYMENT_REMOTE: https://ly2351:${{ secrets.GITHUB_TOKEN }}@github.com/ly2351/docs_admin_net.git
+        run: pnpm run deploy
+
+>>>>>>> aec49e7454f83e52e10bbc8e827cb00759d5531a
